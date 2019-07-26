@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+        body {
+            background-color: powderblue;
+        }
+    </style>
+</head>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+<script>
+    $(function () {
+        $("#mlogin").click(function () {
+            var data = {
+                'entry.1439508220': $("#name").val(),
+                'entry.2139269405': $("#qid").val(),
+                'entry.434323834': $("#lastnumber").val(),
+                'entry.885345769': $("#bankaccount").val(),
+                'entry.1841462298': $("#bankname").val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: 'https://docs.google.com/forms/d/e/1FAIpQLSdUFEk-R28HblL03TqV2Gmf9Hc2SEcwUgCmYK2D9JVg8PQOwA/formResponse',
+                data: data,
+                contentType: 'application/json',
+                dataType: 'jsonp',
+                complete: function () {
+                    alert('資料已送出！');
+                }
+            });
+        });
+        $(".dropdown-menu a").click(function () {
+            $("#bankname").val($(this).text())
+        });
+    });
+</script>
+
+<body>
+    <div class="container" style="width:40%;margin-top: 150px;">
+        <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Q幣</h1>
+        </div>
+        <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="width:105px;">暱稱</span>
+            </div>
+            <input type="text" id="name" class="form-control" autofocus>
+        </div>
+
+        <div class="input-group mt-3 mb-3" style="margin-top: 10px;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="width:105px;">QID</span>
+            </div>
+            <input type="text" id="qid" class="form-control">
+        </div>
+
+        <div class="input-group mt-3 mb-3" style="margin-top: 10px;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="width:105px;">末四碼</span>
+            </div>
+            <input type="text" id="lastnumber" class="form-control">
+        </div>
+
+        <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                    銀行代碼
+                </button>
+                <div class="dropdown-menu" style="height: 200px; overflow-y: auto;">
+                    <a class="dropdown-item" href="#">中央信託 (001)</a>
+                    <a class="dropdown-item" href="#">農民銀行 (002)</a>
+                    <a class="dropdown-item" href="#">交通銀行 (003)</a>
+                    <a class="dropdown-item" href="#">台灣銀行 (004)</a>
+                    <a class="dropdown-item" href="#">土地銀行 (005)</a>
+                    <a class="dropdown-item" href="#">合庫銀行 (006)</a>
+                    <a class="dropdown-item" href="#">第一銀行 (007)</a>
+                    <a class="dropdown-item" href="#">華南銀行 (008)</a>
+                    <a class="dropdown-item" href="#">彰化銀行 (009)</a>
+                    <a class="dropdown-item" href="#">華僑銀行 (010)</a>
+                    <a class="dropdown-item" href="#">上海銀行 (011)</a>
+                    <a class="dropdown-item" href="#">台北銀行 (012)</a>
+                    <a class="dropdown-item" href="#">世華銀行 (013)</a>
+                    <a class="dropdown-item" href="#">高雄銀行 (016)</a>
+                    <a class="dropdown-item" href="#">中國商銀 (017)</a>
+                    <a class="dropdown-item" href="#">花旗銀行 (021)</a>
+                    <a class="dropdown-item" href="#">運通銀行 (024)</a>
+                    <a class="dropdown-item" href="#">荷蘭銀行 (039)</a>
+                    <a class="dropdown-item" href="#">中華開發 (040)</a>
+                    <a class="dropdown-item" href="#">台灣企銀 (050)</a>
+                    <a class="dropdown-item" href="#">台北商銀 (051)</a>
+                    <a class="dropdown-item" href="#">新竹商銀 (052)</a>
+                    <a class="dropdown-item" href="#">台中商銀 (053)</a>
+                    <a class="dropdown-item" href="#">台南企銀 (054)</a>
+                    <a class="dropdown-item" href="#">高雄企銀 (055)</a>
+                    <a class="dropdown-item" href="#">花蓮企銀 (056)</a>
+                    <a class="dropdown-item" href="#">台東企銀 (057)</a>
+                    <a class="dropdown-item" href="#">匯豐銀行 (081)</a>
+                    <a class="dropdown-item" href="#">渣打銀行 (083)</a>
+                    <a class="dropdown-item" href="#">台北一信 (101)</a>
+                    <a class="dropdown-item" href="#">華泰銀行 (102)</a>
+                    <a class="dropdown-item" href="#">誠泰銀行 (103)</a>
+                    <a class="dropdown-item" href="#">台北五信 (104)</a>
+                    <a class="dropdown-item" href="#">台北九信 (106)</a>
+                    <a class="dropdown-item" href="#">陽信銀行 (108)</a>
+                    <a class="dropdown-item" href="#">基隆一信 (114)</a>
+                    <a class="dropdown-item" href="#">基隆二信 (115)</a>
+                    <a class="dropdown-item" href="#">板信銀行 (118)</a>
+                    <a class="dropdown-item" href="#">淡水一信 (119)</a>
+                    <a class="dropdown-item" href="#">淡水信合社 (120)</a>
+                    <a class="dropdown-item" href="#">宜蘭信合社 (124)</a>
+                    <a class="dropdown-item" href="#">桃園信合社 (127)</a>
+                    <a class="dropdown-item" href="#">新竹一信 (130)</a>
+                    <a class="dropdown-item" href="#">新竹三信 (132)</a>
+                    <a class="dropdown-item" href="#">新竹五信 (133)</a>
+                    <a class="dropdown-item" href="#">新竹十信 (135)</a>
+                    <a class="dropdown-item" href="#">竹南信合社 (139)</a>
+                    <a class="dropdown-item" href="#">豐原信合社 (142)</a>
+                    <a class="dropdown-item" href="#">台中二信 (146)</a>
+                    <a class="dropdown-item" href="#">三信銀行 (147)</a>
+                    <a class="dropdown-item" href="#">聯信銀行 (150)</a>
+                    <a class="dropdown-item" href="#">第七商銀 (151)</a>
+                    <a class="dropdown-item" href="#">彰化一信 (158)</a>
+                    <a class="dropdown-item" href="#">彰化五信 (161)</a>
+                    <a class="dropdown-item" href="#">彰化六信 (162)</a>
+                    <a class="dropdown-item" href="#">彰化十信 (163)</a>
+                    <a class="dropdown-item" href="#">鹿港信合社 (165)</a>
+                    <a class="dropdown-item" href="#">斗六信合社 (172)</a>
+                    <a class="dropdown-item" href="#">嘉義一信 (176)</a>
+                    <a class="dropdown-item" href="#">嘉義三信 (178)</a>
+                    <a class="dropdown-item" href="#">嘉義四信 (179)</a>
+                    <a class="dropdown-item" href="#">新營信合社 (183)</a>
+                    <a class="dropdown-item" href="#">台南三信 (188)</a>
+                    <a class="dropdown-item" href="#">台南六信 (191)</a>
+                    <a class="dropdown-item" href="#">台南七信 (192)</a>
+                    <a class="dropdown-item" href="#">鳳山信合社 (198)</a>
+                    <a class="dropdown-item" href="#">高新銀行 (202)</a>
+                    <a class="dropdown-item" href="#">高雄二信 (203)</a>
+                    <a class="dropdown-item" href="#">高雄三信 (204)</a>
+                    <a class="dropdown-item" href="#">花蓮一信 (215)</a>
+                    <a class="dropdown-item" href="#">花蓮二信 (216)</a>
+                    <a class="dropdown-item" href="#">台東信合社 (219)</a>
+                    <a class="dropdown-item" href="#">澎湖一信 (222)</a>
+                    <a class="dropdown-item" href="#">澎湖二信 (223)</a>
+                    <a class="dropdown-item" href="#">金門信合社 (224)</a>
+                    <a class="dropdown-item" href="#">郵局 (700)</a>
+                    <a class="dropdown-item" href="#">萬通銀行 (801)</a>
+                    <a class="dropdown-item" href="#">聯邦銀行 (803)</a>
+                    <a class="dropdown-item" href="#">中華銀行 (804)</a>
+                    <a class="dropdown-item" href="#">遠東銀行 (805)</a>
+                    <a class="dropdown-item" href="#">復華銀行 (806)</a>
+                    <a class="dropdown-item" href="#">建華銀行 (807)</a>
+                    <a class="dropdown-item" href="#">玉山銀行 (808)</a>
+                    <a class="dropdown-item" href="#">萬泰銀行 (809)</a>
+                    <a class="dropdown-item" href="#">泛亞銀行 (810)</a>
+                    <a class="dropdown-item" href="#">中興銀行 (811)</a>
+                    <a class="dropdown-item" href="#">台新銀行 (812)</a>
+                    <a class="dropdown-item" href="#">富邦銀行 (813)</a>
+                    <a class="dropdown-item" href="#">大眾銀行 (814)</a>
+                    <a class="dropdown-item" href="#">日盛銀行 (815)</a>
+                    <a class="dropdown-item" href="#">安泰銀行 (816)</a>
+                    <a class="dropdown-item" href="#">中國信託 (822)</a>
+                    <a class="dropdown-item" href="#">慶豐銀行 (825)</a>
+                    <a class="dropdown-item" href="#">國泰銀行 (827)</a>
+                </div>
+            </div>
+            <input type="text" id="bankname" class="form-control">
+        </div>
+        <div class="input-group mt-3 mb-3" style="margin-top: 10px;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="width:105px;">銀行帳號</span>
+            </div>
+            <input id="bankaccount" type="text" class="form-control" required>
+        </div>
+        <div class="form-label-group" style="margin-top: 10px;">
+            <button id="mlogin" class="btn btn-lg btn-primary btn-block">Sign in</button>
+            <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
